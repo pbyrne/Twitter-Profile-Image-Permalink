@@ -8,9 +8,17 @@ class TwitterProfileImage < Sinatra::Base
 
   get '/user/:name' do
     client = Twitter::Client.new
-    user = client.user(params[:name])
-    # "Looking up user #{params[:name]}. The profile URL is #{user.profile_image_url}."
-    redirect user.profile_image_url
+    nomatch = "Unable to find a user with that user name."
+    begin
+      user = client.user(params[:name])
+      if user.profile_image_url
+        redirect user.profile_image_url
+      else
+        nomatch
+      end
+    rescue Exception => e
+      nomatch
+    end
   end
 
   not_found do
