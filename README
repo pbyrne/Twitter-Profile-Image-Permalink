@@ -4,6 +4,8 @@ This is a simple Sinatra app to provide yourself with permalinks to Twitter prof
 
 Why is this necessary? Any time a user updates their profile picture on Twitter, the new picture gets a new URL. This means that if you use these image URLs to display profile pictures, you won't always display their most recent profile picture. If Twitter deletes an old, unused profile picture, then not only are you out of date, you've now got a broken image on your page.
 
+Of course, ideally Twitter would provide sensible permanent links to user's profile images. Barring that, this seems the best alternative.
+
 ## How does it work?
 
 Deploy this as you would a normal Sinatra app. The project has an included Rackup file for use in [Passenger][1] (mod_rails) environments, but you can deploy it however you'd like.
