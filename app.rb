@@ -3,7 +3,8 @@ require 'sinatra'
 require 'twitter'
 
 get '/' do
-  "Hello, world!"
+  # todo - update to use a full HTML page (layout and view)
+  "Hit /user/sometwitterusername as a permalink for that user's profile picture. Built using the open-souce Twitter Profile Image Permalink project (http://github.com/pbyrne/Twitter-Profile-Image-Permalink/). We encourage you to host this app yourself for your own use."
 end
 
 get '/user/:name' do
