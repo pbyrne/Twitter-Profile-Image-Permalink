@@ -1,3 +1,6 @@
+require 'sinatra'
+require 'twitter'
+
 get '/' do
   "Hello, world!"
 end
