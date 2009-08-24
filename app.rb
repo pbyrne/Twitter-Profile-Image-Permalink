@@ -2,4 +2,4 @@
 require 'sinatra/base'
 require 'lib/twitter-profile-image'
 
-# TwitterProfileImage.run! :holst => 'localhost', :port => 9090
+# TwitterProfileImage.run! :host => 'localhost', :port => 9090
