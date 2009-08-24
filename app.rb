@@ -1,5 +1,26 @@
-# require 'rubygems'
-require 'sinatra/base'
-require 'lib/twitter-profile-image'
+get '/' do
+  "Hello, world!"
+end
 
-# TwitterProfileImage.run! :host => 'localhost', :port => 9090
+get '/user/:name' do
+  client = Twitter::Client.new
+  nomatch = "Unable to find a user with that user name."
+  begin
+    user = client.user(params[:name])
+    if user.profile_image_url
+      redirect user.profile_image_url
+    else
+      nomatch
+    end
+  rescue Exception => e
+    nomatch
+  end
+end
+
+not_found do
+  "Page not found. Try /user/sometwitterusername instead."
+end
+
+error do
+  "Uh oh. Something very bad happened."
+end
